@@ -1,0 +1,29 @@
+<div>
+  <fieldset>
+    <legend>{{ format || 'NO FILE SELCTED' | titlecase }}</legend>
+
+    <img [src]="url" height="200" *ngIf="format == 'image' && url" />
+    <video
+      [src]="url"
+      height="200"
+      controls
+      *ngIf="format == 'video' && url"
+    ></video>
+
+    <input
+      #fss
+      style="cursor:pointer"
+      id="fs"
+      type="file"
+      accept="video/mp4,image/*"
+      (change)="onFileUpload($event)"
+    />
+    <button
+      [disabled]="!url"
+      (click)="fss.value = '' || (url = '') || (format = '')"
+    >
+      Clear
+    </button>
+  </fieldset>
+  <br />
+</div>
