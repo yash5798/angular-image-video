@@ -1,6 +1,6 @@
 <div>
   <fieldset>
-    <legend>{{ format || 'NO FILE SELCTED' | titlecase }}</legend>
+    <legend>{{ format | titlecase }}</legend>
 
     <img [src]="url" height="200" *ngIf="format == 'image' && url" />
     <video
